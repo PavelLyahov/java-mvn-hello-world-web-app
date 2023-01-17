@@ -18,8 +18,9 @@ pipeline {
             bat 'mvn package'
             bat """
                 call cd target
-                call dir
+                call dir \b
                 call rename mvn-hello-world.war ROOT.war
+                call dir \b
             """
         }
     }
@@ -28,7 +29,7 @@ pipeline {
 
     stage('Deploy') {
         steps {
-            deploy adapters: [tomcat9(credentialsId: '', path: '', url: 'http://localhost:8085')], contextPath: '/pipeline', onFailure: false, war: 'target/*.war'
+            deploy adapters: [tomcat9(credentialsId: '', path: '', url: 'http://localhost:8086')], onFailure: false, war: 'target/ROOT.war'
         }
     }
 
