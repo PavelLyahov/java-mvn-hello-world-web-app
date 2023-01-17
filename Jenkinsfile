@@ -2,6 +2,12 @@ pipeline {
   agent any
 
   stages {
+    stage('Unit tests') {
+        steps {
+            bat 'mvn clean test'
+        }
+    }
+
     stage('Build') {
         steps {
             bat """
@@ -10,14 +16,15 @@ pipeline {
             """
             echo "build war file"
             bat 'mvn package'
+            bat """
+                call cd target
+                call dir
+                call rename mvn-hello-world.war ROOT.war
+            """
         }
     }
 
-    stage('Unit tests') {
-        steps {
-            bat 'mvn clean test'
-        }
-    }
+
 
     stage('Deploy') {
         steps {
