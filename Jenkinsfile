@@ -12,5 +12,18 @@ pipeline {
             bat 'mvn package'
         }
     }
+
+    stage('Unit tests') {
+        steps {
+            bat 'mvn clean test'
+        }
+    }
+
+    stage('Deploy') {
+        steps {
+            deploy adapters: [tomcat9(credentialsId: '', path: '', url: 'http://localhost:8085')], contextPath: '/pipeline', onFailure: false, war: 'target/*.war'
+        }
+    }
+
   }
 }
