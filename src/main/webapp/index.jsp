@@ -9,7 +9,7 @@
   <div class="jumbotron" style="background-color:white">
       <img src="https://octodex.github.com/images/spidertocat.png" alt="Spidertocat"
            class="img-responsive center-block" style="width:250px"/>
-      <h2 class="text-center">copy ROOT.war C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\javawebhelloworld</h2>
+      <h2 class="text-center">copy ROOT.war C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\javaweb</h2>
       <p class="text-center">use this for clearing workspace cleanWs()</p>
   </div>
 </body>
