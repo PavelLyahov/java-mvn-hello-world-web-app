@@ -8,6 +8,6 @@ public class TestCompare {
 
     @Test
     public static void testOverloadedCompareMethod() {
-        Assert.assertEquals(1, new User().compareTo(1));
+        Assert.assertEquals(1, new User("Jack").compareTo(1));
     }
 }
