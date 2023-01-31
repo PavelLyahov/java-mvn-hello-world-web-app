@@ -7,7 +7,7 @@ import utils.User;
 public class TestCompare {
 
     @Test
-    public static void testOverloadedCompareMethod() {
+    public void testOverloadedCompareMethod() {
         Assert.assertEquals(1, new User("Jack").compareTo(1));
     }
 }

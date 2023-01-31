@@ -7,7 +7,7 @@ import utils.Util;
 public class TestDeprecatedMethod {
 
     @Test
-    public static void testDeprecatedMethod() {
+    public void testDeprecatedMethod() {
         Assert.assertEquals("deprecated", Util.depricatedMethod());
     }
 }

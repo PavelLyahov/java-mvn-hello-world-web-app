@@ -7,7 +7,7 @@ import utils.User;
 public class TestEqualsWithoutHashCode {
 
     @Test
-    public static void testEqualsWithoutHashCode() {
+    public void testEqualsWithoutHashCode() {
         User user = new User("Jack");
         Assert.assertEquals(new User("Jack"), user);
     }
