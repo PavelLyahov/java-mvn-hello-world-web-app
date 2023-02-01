@@ -32,7 +32,31 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.5</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>3.2.1</version>
+			<type>maven-plugin</type>
+		</dependency>
 	</dependencies>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.2.1</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
 	<build>
 		<finalName>mvn-hello-world</finalName>
 		<plugins>
@@ -43,6 +67,27 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<id>verify-style</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
+					<configLocation>checkstyle.xml</configLocation>
+					<logViolationsToConsole>true</logViolationsToConsole>
+					<failOnViolation>false</failOnViolation>
+					<includes>%regex[.*(${checkstyle.includes}).*]</includes>
 				</configuration>
 			</plugin>
 			<plugin>

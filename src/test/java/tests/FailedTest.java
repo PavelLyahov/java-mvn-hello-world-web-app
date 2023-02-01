@@ -1,4 +1,4 @@
-package com.dev3l.hello_world.test;
+package tests;
 
 import org.junit.Test;
 
