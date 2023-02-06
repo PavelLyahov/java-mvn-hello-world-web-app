@@ -2,11 +2,12 @@ pipeline {
    agent any
 
    environment {
+   TOKEN = credentials('jenkins_token_access')
         TOMCAT_PATH = 'C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\javaweb'
     }
 
    stages {
-       stage('Unit tests') {
+       stage('Unit Test___ffddve_de') {
             steps {
                 bat 'mvn clean test'
             }
@@ -56,6 +57,11 @@ pipeline {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
+         stage('Trigger test job') {
+                   steps {
+                       bat("curl -u %TOKEN_USR%:%TOKEN_PSW% https://admin:1129c48191b9df691e6deef8e4c34893cc@8bc7-188-169-82-252.eu.ngrok.io/job/JavaWebTest/build?token=tokenForTestinJob123321")
+                   }
+               }
    }
 
    post {
