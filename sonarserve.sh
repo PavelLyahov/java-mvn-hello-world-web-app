@@ -1,0 +1,1 @@
+mvn clean verify sonar:sonar -Dsonar.projectKey=javaweb -Dsonar.host.url=https://798b-94-43-162-234.eu.ngrok.io -Dsonar.login=sqp_ccfba6216523c6e66bbe05cb0ac2a3347ab1fc3f
